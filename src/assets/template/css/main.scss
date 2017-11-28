@@ -1,0 +1,49 @@
+@import 'modules/variables';
+@import '../fonts/Lato/lato.css';
+@import '../fonts/font-awesome.css';
+@import 'skeleton/skeleton';
+/*@import 'sprites/sprite';*/
+@import 'sprites/sprite';
+
+@import 'modules/common';
+
+a{
+  color: $gold;
+}
+body *{
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 120%;
+}
+.f-container{
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.m-header{
+  background: #090909 url('../img/m-header__bg.jpg') center top no-repeat;
+  background-size: cover;
+  .f-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__menu{
+    width: 180px;
+    padding-top: 45px;
+  }
+  &__contacts{
+    width: 180px;
+    text-align: right;
+  }
+}
+
+.m-menu{
+  &__caption{
+    font-size: 16px;
+    color: $gold;
+    text-transform: uppercase;
+  }
+}
