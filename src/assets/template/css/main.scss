@@ -10,11 +10,13 @@
 a{
   color: $gold;
 }
-body *{
-  box-sizing: border-box;
+body{
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   line-height: 120%;
+}
+*{
+  box-sizing: border-box;
 }
 .f-container{
   max-width: 1170px;
@@ -26,8 +28,13 @@ body *{
 .m-header{
   background: #090909 url('../img/m-header__bg.jpg') center top no-repeat;
   background-size: cover;
-  height: 100vh;
+  //height: 100vh;
+  height: 818px;
   .f-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .f-row{
     display: flex;
     justify-content: space-between;
   }
@@ -141,6 +148,7 @@ body *{
   height: 1px;
   position: relative;
   margin-top: 116px;
+
   &__box{
     position: absolute;
     width: 360px;
@@ -152,9 +160,19 @@ body *{
       display: inline-block;
       width: 5px;
       height:100px;
-      bottom: -30px;
-      left: 70px;
+      bottom: -143px;
+      left: 178px;
       background: transparent url('../img/line-gold.png') left top repeat-y;
+      position: absolute;
+    }
+    &:after{
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height:100px;
+      bottom: -173px;
+      left: 229px;
+      background: transparent url('../img/line-white.png') left top repeat-y;
       position: absolute;
     }
     img{
@@ -164,5 +182,189 @@ body *{
   &__text{
     font-size: 34px;
     color: #bb9b68;
+    font-weight: 300;
+    line-height: 120%;
+  }
+}
+.b-coat-collection{
+  background: #090909 url('../img/m-coat-collection.jpg') center top no-repeat;
+}
+.b-coating{
+  padding: 57px 0;
+  //background: #090909 url('../img/main-leather-1.jpg') center top no-repeat;
+  &__header{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 42px;
+    color: #fff;
+    margin-bottom: 62px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+  }
+  .f-row{
+    display: flex;
+  }
+  &__text{
+    color: #fff;
+    font-size: 16px;
+    line-height: 180%;
+    padding-top: 20px;
+    position: relative;
+    padding-right: 30px;
+    &:before{
+      position: absolute;
+      content: "";
+      display: inline-block;
+      top: 6px;
+      left: -42px;
+      right: 93px;
+      height: 1px;
+      border-top: 1px dashed $gray;
+    }
+    &:after{
+      position: absolute;
+      content: "";
+      display: inline-block;
+      top: 6px;
+      left: -42px;
+      bottom: 36px;
+      width: 1px;
+      border-left: 1px dashed $gray;
+    }
+  }
+  &__image{
+    width: 386px;
+    margin-left: 43px;
+    margin-right: 43px;
+    position: relative;
+    img{
+      clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 70% 90%, 70% 100%, 0% 100%) margin-box;
+    }
+    &:before{
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 141px;
+      bottom: 26px;
+      right: -27px;
+      background: transparent url('../img/line-gold.png') left top repeat-y;
+      position: absolute;
+    }
+    &:after{
+      content: "";
+      display: inline-block;
+      height: 5px;
+      width: 141px;
+      bottom: 15px;
+      right: -30px;
+      background: transparent url('../img/line-gold-vertical.png') left top repeat-x;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+  &__line{
+    position: absolute;
+    top: -136px;
+    width: 15px;
+    background: transparent url('../img/m-coating__line.png') center top no-repeat;
+    height: 445px;
+    left: -36px;
+  }
+}
+
+.b-collection{
+  padding: 40px 0;
+  &__header{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 42px;
+    color: #fff;
+    margin-bottom: 58px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+  }
+  &__image{
+    height: 257px;
+    width: 360px;
+    margin-top: 25px;
+    margin-bottom: 36px;
+    margin-left: -40px;
+    margin-right: 64px;
+
+  }
+  &__list{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__card{
+    position: relative;
+    max-width: 475px;
+    z-index: 5;
+    margin-left: 97px;
+    &:before{
+      background-color: #310000;
+      width: 112px;
+      top: -29px;
+      bottom: 24px;
+      left: -78px;
+      transform: skew(-45deg);
+      position: absolute;
+      display: block;
+      content: "";
+      transform-origin: left bottom;
+    }
+    &:after{
+      border: 1px solid #ab0000;
+      width: 112px;
+      top: -23px;
+      bottom: 18px;
+      left: -72px;
+      transform: skew(-45deg);
+      position: absolute;
+      display: block;
+      content: "";
+      transform-origin: left bottom;
+      z-index: 1;
+    }
+  }
+  &__item{
+    padding-left: 14px;
+    &:last-child{
+      margin-top: 70px;
+    }
+  }
+  &__border{
+    border-width: 1px 0 1px 1px;
+    border-color: #fff;
+    border-style: solid;
+    position: relative;
+    z-index: 2;
+    &:before{
+      content: "";
+      width: 10px;
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      right: -5px;
+      background: transparent url('../img/line-white.png') center top repeat-y;
+    }
+  }
+  &__name{
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 41px;
+    position: relative;
+    letter-spacing: 2px;
+    &:before{
+      content: "";
+      display: block;
+      width: 10px;
+      height: 36px;
+      background: transparent url('../img/line-red.png') center top repeat-y;
+      bottom: -55px;
+      position: absolute;
+    }
   }
 }
