@@ -525,13 +525,287 @@ body{
     text-align: center;
     font-size: 42px;
     color: #fff;
-    margin-bottom: 58px;
+    margin-bottom: 102px;
     letter-spacing: 3px;
     position: relative;
     z-index: 2;
+  }
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  &__item{
+    width: 50%;
+    display: flex;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  &__image{
+    width: 50%;
+    position: relative;
+    &:before{
+      content: "";
+      display: inline-block;
+      width: 175px;
+      height: 175px;
+      border: 1px solid $gold;
+      position: absolute;
+      transform: rotate(-45deg);
+      bottom: -9px;
+      right: 20px;
+    }
+    &:after{
+      content: "";
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-color: #31230d;
+      position: absolute;
+      right: -18px;
+      top: -18px;
+      transform: rotate(-45deg);
+    }
+    img{
+      position: relative;
+      z-index: 3;
+    }
+  }
+  &__info{
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+  }
+  &__name{
+    font-size: 16px;
+    color: $gold;
+    margin-bottom: 12px;
+  }
+  &__text{
+    color: #fff;
+    font-size: 12px;
+    line-height: 165%;
+  }
+  &__more{
+    margin-top: auto;
+    display: flex;
+    a{
+      text-decoration: none;
+      padding-bottom: 14px;
+      position: relative;
+      transition: $anim;
+      &:hover{
+        color: #fff;
+      }
+      &:before{
+        content: "";
+        display: inline-block;
+        height: 5px;
+        left: 0;
+        bottom: 4px;
+        right: 0px;
+        background: transparent url('../img/line-gold-vertical.png') left top repeat-x;
+        position: absolute;
+        z-index: 2;
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        display: inline-block;
+        @include sprite($quot-gold);
+        right: -62px;
+        top: 2px;
+      }
+    }
   }
 }
 
 .b-coat-collection + .m-reviews{
   margin-top: -126px;
+}
+
+
+.b-questions {
+  padding: 40px 0;
+  &__header {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 42px;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 19px;
+  }
+  &__lead{
+    color: #fff;
+    letter-spacing: -0.3px;
+    margin-bottom: 62px;
+  }
+  .f-row{
+    display: inline-flex;
+  }
+  &__inputs{
+    width: 360px;
+  }
+  input[type="text"]{
+    border: 1px solid #464646;
+    background-color: transparent;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px 0 40px;
+    width: 100%;
+    color: #fff;
+  }
+  textarea{
+    border: 1px solid #464646;
+    background-color: transparent;
+    height: 100px;
+    line-height: 130%;
+    padding: 15px 15px 15px 40px;
+    width: 100%;
+    color: #fff;
+  }
+  .input-box + .input-box{
+    margin-top: 35px;
+  }
+  &__right-box{
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__btn{
+    display: inline-block;
+    margin-left: 50px;
+    width: 262px;
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #fff;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+    position: relative;
+    padding: 0;
+    transition: $anim;
+    &:before{
+      content: "";
+      display: inline-block;
+      border: 4px solid transparent;
+      border-left: 4px solid #fff;
+      border-top: 4px solid #fff;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: $anim;
+    }
+    &:after{
+      content: "";
+      display: inline-block;
+      border: 4px solid transparent;
+      border-left: 4px solid #fff;
+      border-bottom: 4px solid #fff;
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: $anim;
+    }
+    &:hover{
+      background-color: rgba(0,0,0,0.4);
+      color: $red;
+      border-color: $red;
+      &:before{
+        border-left-color: $red;
+        border-top-color: $red;
+      }
+      &:after{
+        border-left-color: $red;
+        border-bottom-color: $red;
+      }
+      .b-questions__angles{
+        &:before{
+          border-right-color: $red;
+          border-top-color: $red;
+        }
+        &:after{
+          border-right-color: $red;
+          border-bottom-color: $red;
+        }
+      }
+      .b-questions__btntext{
+        &:before{
+          background: $red;
+        }
+        &:after{
+          border-left-color: $red;
+        }
+      }
+    }
+  }
+  &__btntext {
+    position: relative;
+    display: block;
+    padding-left: 56px;
+    &:before{
+      content: "";
+      position: absolute;
+      width: 1px;
+      background: #fff;
+      top: 0;
+      bottom: 2px;
+      left: 56px;
+      transition: $anim;
+    }
+    &:after{
+      left: 20px;
+      transform: translateY(-50%);
+      content: "\f0a4";
+      font-family: FontAwesome;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 50%;
+      line-height: 1;
+      transition: $anim;
+    }
+  }
+  &__angles{
+    &:before{
+      content: "";
+      display: inline-block;
+      border: 4px solid transparent;
+      border-right: 4px solid #fff;
+      border-top: 4px solid #fff;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: $anim;
+    }
+    &:after{
+      content: "";
+      display: inline-block;
+      border: 4px solid transparent;
+      border-right: 4px solid #fff;
+      border-bottom: 4px solid #fff;
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transition: $anim;
+    }
+  }
+
 }
