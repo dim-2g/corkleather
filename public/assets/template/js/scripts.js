@@ -1,1 +1,0 @@
-console.log("init google analytics"),console.log("init inspectlet"),console.log("init shoppyboom");
