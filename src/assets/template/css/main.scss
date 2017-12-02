@@ -5,7 +5,9 @@
 /*@import 'sprites/sprite';*/
 @import 'sprites/sprite';
 
+@import 'modules/mainpage';
 @import 'modules/common';
+
 
 a{
   color: $gold;
@@ -14,10 +16,14 @@ body{
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   line-height: 120%;
-  background-color: #090909;
+  background: #090909 url('../img/header__bg.jpg') center top no-repeat;
 }
 *{
   box-sizing: border-box;
+}
+.container{
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .f-container{
   max-width: 1170px;
@@ -26,79 +32,61 @@ body{
   padding-left: 15px;
   padding-right: 15px;
 }
-.m-header{
-  background: #090909 url('../img/m-header__bg.jpg') center top no-repeat;
-  background-size: cover;
-  //height: 100vh;
-  height: 818px;
-  .f-container{
-    display: flex;
-    justify-content: space-between;
-  }
+
+
+
+
+
+.header{
   .f-row{
     display: flex;
     justify-content: space-between;
   }
-  &__menu{
-    width: 180px;
-    padding-top: 45px;
+  &__top{
+    padding-top: 27px;
+    margin-bottom: 25px;
   }
-  &__center{
-    padding-top: 34px;
+  &__nav{
+    flex-grow: 1;
+    ul{
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      justify-content: space-between;
+      position: relative;
+      &:before{
+        content: "";
+        display: inline-block;
+        height: 5px;
+        left: 0;
+        bottom: -10px;
+        right: 0px;
+        background: transparent url('../img/line-gold-vertical.png') left top repeat-x;
+        position: absolute;
+        z-index: 2;
+      }
+      a{
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: 13px;
+      }
+    }
+  }
+  &__logo{
+    width: 328px;
   }
   &__contacts{
-    width: 180px;
+    width: 220px;
     text-align: right;
-    padding-top: 46px;
-    a{
-      color: #fff;
-      &:hover{
-        color: $gold;
-      }
-    }
+  }
+  &__crumbs{
+    flex-grow: 1;
   }
 }
-
-.m-menu{
-  &__caption{
-    font-size: 16px;
-    color: $gold;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: 3.5px;
-  }
-  &__list{
-    padding-left: 25px;
-    list-style-type: none;
-    position: relative;
-    &:before{
-      content: "";
-      display: inline-block;
-      width: 5px;
-      top: 6px;
-      bottom: 6px;
-      left: 0;
-      background: transparent url('../img/line-gold.png') left top repeat-y;
-      position: absolute;
-    }
-    li{
-      margin-bottom: 21px;
-    }
-    a{
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      transition: $anim;
-      &:hover{
-        color: $gold;
-      }
-    }
-  }
-}
-.m-contacts{
+.contacts{
   &__row{
-    margin-bottom: 23px;
+    margin-bottom: 7px;
   }
   &__value{
     font-size: 14px;
@@ -132,258 +120,50 @@ body{
     }
   }
 }
-.m-logo{
-  text-align: center;
-  margin-bottom: 80px;
-}
-.m-slogan{
-  font-size: 42px;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fff;
-  line-height: 140%;
-  max-width: 600px;
-  letter-spacing: 3px;
-}
 
-.m-warranty{
-  width: 100%;
-  height: 1px;
+.breadcrumb{
+  padding-left: 0;
+  color: $gold;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  background-color: rgba(86,58,13,0.5);
   position: relative;
-  margin-top: 116px;
-
-  &__box{
+  height: 20px;
+  &:before{
     position: absolute;
-    width: 360px;
-    top: 0;
-    right: 0;
-    text-align: center;
-    &:before{
-      content: "";
-      display: inline-block;
-      width: 5px;
-      height:100px;
-      bottom: -143px;
-      left: 178px;
-      background: transparent url('../img/line-gold.png') left top repeat-y;
-      position: absolute;
-    }
-    &:after{
-      content: "";
-      display: inline-block;
-      width: 5px;
-      height:100px;
-      bottom: -173px;
-      left: 229px;
-      background: transparent url('../img/line-white.png') left top repeat-y;
-      position: absolute;
-    }
-    img{
-      margin-right: -28px;
-    }
-  }
-  &__text{
-    font-size: 34px;
-    color: #bb9b68;
-    font-weight: 300;
-    line-height: 120%;
+    content: "";
+    height: 20px;
+    background-color: rgba(86,58,13,0.5);
+    right: 100%;
+    width: 2000px;
+
   }
 }
-.b-coat-collection{
-  background: #090909 url('../img/m-coat-collection.jpg') center top no-repeat;
-}
-.b-coating{
-  padding: 57px 0;
-  //background: #090909 url('../img/main-leather-1.jpg') center top no-repeat;
-  &__header{
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 42px;
+.breadcrumb a{
+  color: $gold;
+  text-decoration: none;
+  transition: $anim;
+  &:hover{
     color: #fff;
-    margin-bottom: 62px;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 2;
+    transition: $anim;
   }
+}
+.breadcrumb > li {
+  display: inline-block;
+  line-height: 20px;
+  margin: 0;
+}
+.breadcrumb > li + li::before {
+  content: " - ";
+  padding: 0 18px;
+}
+
+
+.b-catalog{
+  padding: 40px 0 100px;
   .f-row{
     display: flex;
-  }
-  &__text{
-    color: #fff;
-    font-size: 16px;
-    line-height: 180%;
-    padding-top: 20px;
-    position: relative;
-    padding-right: 30px;
-    &:before{
-      position: absolute;
-      content: "";
-      display: inline-block;
-      top: 6px;
-      left: -42px;
-      right: 93px;
-      height: 1px;
-      border-top: 1px dashed $gray;
-    }
-    &:after{
-      position: absolute;
-      content: "";
-      display: inline-block;
-      top: 6px;
-      left: -42px;
-      bottom: 36px;
-      width: 1px;
-      border-left: 1px dashed $gray;
-    }
-  }
-  &__image{
-    width: 386px;
-    margin-left: 43px;
-    margin-right: 43px;
-    position: relative;
-    img{
-      clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 70% 90%, 70% 100%, 0% 100%) margin-box;
-    }
-    &:before{
-      content: "";
-      display: inline-block;
-      width: 5px;
-      height: 141px;
-      bottom: 26px;
-      right: -27px;
-      background: transparent url('../img/line-gold.png') left top repeat-y;
-      position: absolute;
-    }
-    &:after{
-      content: "";
-      display: inline-block;
-      height: 5px;
-      width: 141px;
-      bottom: 15px;
-      right: -30px;
-      background: transparent url('../img/line-gold-vertical.png') left top repeat-x;
-      position: absolute;
-      z-index: 2;
-    }
-  }
-  &__line{
-    position: absolute;
-    top: -136px;
-    width: 15px;
-    background: transparent url('../img/m-coating__line.png') center top no-repeat;
-    height: 445px;
-    left: -36px;
-  }
-}
-
-.b-collection{
-  padding: 75px 0 200px;
-  &__header{
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 42px;
-    color: #fff;
-    margin-bottom: 58px;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 2;
-  }
-  &__image{
-    height: 257px;
-    width: 360px;
-    margin-top: 25px;
-    margin-bottom: 36px;
-    margin-left: -40px;
-    margin-right: 64px;
-    display: flex;
-    align-items: flex-end;
-  }
-  &__list{
-    display: flex;
-    justify-content: space-between;
-  }
-  &__card{
-    position: relative;
-    max-width: 475px;
-    z-index: 5;
-    margin-left: 97px;
-    &:before{
-      background-color: #310000;
-      width: 112px;
-      top: -29px;
-      bottom: 24px;
-      left: -78px;
-      transform: skew(-45deg);
-      position: absolute;
-      display: block;
-      content: "";
-      transform-origin: left bottom;
-    }
-    &:after{
-      border: 1px solid $red;
-      width: 112px;
-      top: -23px;
-      bottom: 18px;
-      left: -72px;
-      transform: skew(-45deg);
-      position: absolute;
-      display: block;
-      content: "";
-      transform-origin: left bottom;
-      z-index: 1;
-    }
-    &:hover{
-      .b-collection__border {
-        border-color: #563a0d;
-        &:before{
-          background: transparent url('../img/line-gold.png') center top repeat-y;
-        }
-      }
-      .b-collection__btn{
-        background-color: rgba(0,0,0,0.4);
-        color: $red;
-        border-color: $red;
-        &:before{
-          border-left-color: $red;
-          border-top-color: $red;
-        }
-        &:after{
-          border-left-color: $red;
-          border-bottom-color: $red;
-        }
-      }
-      .b-collection__angles{
-        &:before{
-          border-right-color: $red;
-          border-top-color: $red;
-        }
-        &:after{
-          border-right-color: $red;
-          border-bottom-color: $red;
-        }
-      }
-      .b-collection__btntext{
-        &:before{
-          background: $red;
-        }
-        &:after{
-          border-left-color: $red;
-        }
-      }
-
-
-    }
-  }
-  &__item{
-    padding-left: 14px;
-    display: block;
-    text-decoration: none;
-    &:last-child{
-      margin-top: 70px;
-    }
-    *{
-      transition: $anim;
-    }
   }
   &__border{
     border-width: 1px 0 1px 1px;
@@ -402,36 +182,82 @@ body{
       transition: $anim;
     }
   }
-  &__name{
-    color: #fff;
-    font-size: 30px;
-    margin-bottom: 41px;
+  &__card {
     position: relative;
-    letter-spacing: 2px;
-    &:before{
-      content: "";
-      display: block;
-      width: 10px;
-      height: 36px;
-      background: transparent url('../img/line-red.png') center top repeat-y;
-      bottom: -55px;
+    max-width: 475px;
+    z-index: 5;
+    margin-left: 70px;
+    &:before {
+      background-color: #310000;
+      width: 112px;
+      top: -29px;
+      bottom: 24px;
+      left: -78px;
+      transform: skew(-45deg);
       position: absolute;
+      display: block;
+      content: "";
+      transform-origin: left bottom;
+    }
+    &:after {
+      border: 1px solid $red;
+      width: 112px;
+      top: -23px;
+      bottom: 18px;
+      left: -72px;
+      transform: skew(-45deg);
+      position: absolute;
+      display: block;
+      content: "";
+      transform-origin: left bottom;
+      z-index: 1;
     }
   }
+  &__image{
+    height: 257px;
+    width: 360px;
+    margin-top: 25px;
+    margin-bottom: 36px;
+    margin-left: -40px;
+    margin-right: 64px;
+    display: flex;
+    align-items: flex-end;
+  }
+  &__right{
+    color: $gold;
+    padding-left: 35px;
+    padding-top: 16px;
+    padding-bottom: 23px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__text{
+    line-height: 200%;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    margin-bottom: 30px;
+  }
+  &__info{
+    margin-bottom: 78px;
+  }
+}
+
+.styled{
   &__btn{
     display: inline-block;
-    margin-left: 50px;
-    width: 165px;
+    margin: 0px;
+    width: 212px;
     height: 40px;
-    line-height: 40px;
+    line-height: 36px;
     border: 1px solid #fff;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    margin-bottom: 30px;
     background-color: transparent;
     position: relative;
     padding: 0;
+    transition: $anim;
     &:before{
       content: "";
       display: inline-block;
@@ -458,11 +284,43 @@ body{
       left: 0;
       transition: $anim;
     }
+    &:hover{
+      background-color: rgba(0,0,0,0.4);
+      color: $red;
+      border-color: $red;
+      &:before{
+        border-left-color: $red;
+        border-top-color: $red;
+      }
+      &:after{
+        border-left-color: $red;
+        border-bottom-color: $red;
+      }
+      .styled__angles{
+        &:before{
+          border-right-color: $red;
+          border-top-color: $red;
+        }
+        &:after{
+          border-right-color: $red;
+          border-bottom-color: $red;
+        }
+      }
+      .styled__btntext{
+        &:before{
+          background: $red;
+        }
+        &:after{
+          border-left-color: $red;
+        }
+      }
+    }
   }
   &__btntext {
     position: relative;
     display: block;
     padding-left: 40px;
+    height: 40px;
     &:before{
       content: "";
       position: absolute;
@@ -517,436 +375,74 @@ body{
   }
 }
 
-
-.m-reviews {
-  padding: 40px 0 140px;
-  &__header {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 42px;
+.products{
+  &__caption{
+    font-size: 30px;
     color: #fff;
-    margin-bottom: 102px;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 32px;
+    letter-spacing: 2.2px;
   }
   &__list{
-    display: flex;
     flex-wrap: wrap;
-    margin-left: -15px;
-    margin-right: -15px;
-  }
-  &__item{
-    width: 50%;
-    display: flex;
-    margin-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  &__image{
-    width: 50%;
-    position: relative;
-    &:before{
-      content: "";
-      display: inline-block;
-      width: 175px;
-      height: 175px;
-      border: 1px solid $gold;
-      position: absolute;
-      transform: rotate(-45deg);
-      bottom: -9px;
-      right: 20px;
-    }
-    &:after{
-      content: "";
-      display: block;
-      width: 40px;
-      height: 40px;
-      background-color: #31230d;
-      position: absolute;
-      right: -18px;
-      top: -18px;
-      transform: rotate(-45deg);
-    }
-    img{
-      position: relative;
-      z-index: 3;
-    }
-  }
-  &__info{
-    padding-left: 30px;
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-  }
-  &__name{
-    font-size: 16px;
-    color: $gold;
-    margin-bottom: 12px;
-  }
-  &__text{
-    color: #fff;
-    font-size: 12px;
-    line-height: 165%;
-  }
-  &__more{
-    margin-top: auto;
-    display: flex;
-    a{
-      text-decoration: none;
-      padding-bottom: 14px;
-      position: relative;
-      transition: $anim;
-      &:hover{
-        color: #fff;
-      }
-      &:before{
-        content: "";
-        display: inline-block;
-        height: 5px;
-        left: 0;
-        bottom: 4px;
-        right: 0px;
-        background: transparent url('../img/line-gold-vertical.png') left top repeat-x;
-        position: absolute;
-        z-index: 2;
-      }
-      &:after{
-        content: "";
-        position: absolute;
-        display: inline-block;
-        @include sprite($quot-gold);
-        right: -62px;
-        top: 2px;
-      }
-    }
-  }
-}
-
-.b-coat-collection + .m-reviews{
-  margin-top: -126px;
-}
-
-
-.b-questions {
-  padding: 100px 0 40px;
-  overflow-x: hidden;
-  //background: transparent url('/assets/template/img/b-forma__images.png') 50% top no-repeat;
-  &__header {
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 42px;
-    color: #fff;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 19px;
-  }
-  &__lead{
-    color: #fff;
-    letter-spacing: -0.3px;
-    margin-bottom: 62px;
-  }
-  .f-row{
-    display: flex;
-  }
-  &__inputs{
-    width: 360px;
-    position: relative;
-    z-index: 2;
-  }
-  input[type="text"]{
-    border: 1px solid #464646;
-    background-color: rgba(0,0,0,0.6);
-    height: 50px;
-    line-height: 50px;
-    padding: 0 10px 0 40px;
-    width: 100%;
-    color: #fff;
-  }
-  textarea{
-    border: 1px solid #464646;
-    background-color: rgba(0,0,0,0.6);
-    height: 100px;
-    line-height: 130%;
-    padding: 15px 15px 15px 40px;
-    width: 100%;
-    color: #fff;
-  }
-  .input-box{
-    position: relative;
-    +.input-box{
-      margin-top: 35px;
-    }
-    &:before{
-      position: absolute;
-      content: "";
-      top: 50%;
-      transform: translateY(-50%);
-      left: 11px;
-    }
-    &--name:before{
-      @include sprite($forma-name);
-    }
-    &--email:before{
-      @include sprite($forma-email);
-    }
-    &--phone:before{
-      @include sprite($forma-phone);
-    }
-    &--message:before{
-      @include sprite($forma-message);
-      top: 24px;
-    }
-
-  }
-
-  &__right-box{
-    display: flex;
-    align-items: flex-end;
-    flex-grow: 1;
-    position: relative;
-  }
-  &__images{
-    position: absolute;
-    //top: 0;
-    //left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    left: -89px;
-    top: -181px;
-
-  }
-  &__image-big-o{
-    background-size: cover;
-    position: absolute;
-    top: -182px;
-    left: 89px;
-    width: 672px;
-    height: 368px;
-    border: 1px solid $red;
-    transform: skew(-44.5deg);
-  }
-  &__image-big{
-    background-size: cover;
-    position: absolute;
-    top: -170px;
-    left: -87px;
-    width: 1036px;
-    height: 368px;
-    clip-path: polygon(35% 0%, 100% 0%, 65% 100%, 0% 100%) margin-box;
-  }
-  &__btn-box{
-    position: relative;
-    &:after{
-      content: "";
-      display: inline-block;
-      width: 156px;
-      height: 5px;
-      top: 28px;
-      margin-left: 30px;
-      position: absolute;
-      background: transparent url('../img/line-gold-vertical.png') left top repeat-x;
-    }
-  }
-  &__btn{
-    display: inline-block;
-    margin-left: 31px;
-    width: 262px;
-    font-size: 16px;
-    height: 60px;
-    line-height: 58px;
-    border: 1px solid #fff;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background-color: transparent;
-    position: relative;
-    padding: 0;
-    transition: $anim;
-    z-index: 2;
-    &:before{
-      content: "";
-      display: inline-block;
-      border: 4px solid transparent;
-      border-left: 4px solid #fff;
-      border-top: 4px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: $anim;
-    }
-    &:after{
-      content: "";
-      display: inline-block;
-      border: 4px solid transparent;
-      border-left: 4px solid #fff;
-      border-bottom: 4px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transition: $anim;
-    }
-    &:hover{
-      background-color: rgba(0,0,0,0.4);
-      color: $red;
-      border-color: $red;
-      &:before{
-        border-left-color: $red;
-        border-top-color: $red;
-      }
-      &:after{
-        border-left-color: $red;
-        border-bottom-color: $red;
-      }
-      .b-questions__angles{
-        &:before{
-          border-right-color: $red;
-          border-top-color: $red;
-        }
-        &:after{
-          border-right-color: $red;
-          border-bottom-color: $red;
-        }
-      }
-      .b-questions__btntext{
-        &:before{
-          background: $red;
-        }
-        &:after{
-          border-left-color: $red;
-        }
-      }
-    }
-  }
-  &__btntext {
-    position: relative;
-    display: block;
-    padding-left: 56px;
-    height: 60px;
-    &:before{
-      content: "";
-      position: absolute;
-      width: 1px;
-      background: #fff;
-      top: 0;
-      bottom: 2px;
-      left: 56px;
-      transition: $anim;
-    }
-    &:after{
-      left: 20px;
-      transform: translateY(-50%);
-      content: "\f0a4";
-      font-family: FontAwesome;
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      position: absolute;
-      top: 50%;
-      line-height: 1;
-      transition: $anim;
-    }
-  }
-  &__angles{
-    height: 0;
-    line-height: 0;
-    font-size:0;
-    &:before{
-      content: "";
-      display: inline-block;
-      border: 4px solid transparent;
-      border-right: 4px solid #fff;
-      border-top: 4px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transition: $anim;
-    }
-    &:after{
-      content: "";
-      display: inline-block;
-      border: 4px solid transparent;
-      border-right: 4px solid #fff;
-      border-bottom: 4px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      transition: $anim;
-    }
-  }
-
-}
-
-.footer{
-  font-size: 12px;
-  color: $footer-color;
-  background: transparent url('../img/b-footer__bg.jpg') center bottom no-repeat;
-  min-height: 320px;
-  padding-top: 270px;
-  margin-top: -200px;
-
-  a{
-    color: $footer-color;
-  }
-  .f-row{
-    display: flex;
     justify-content: space-between;
   }
-  &__dev{
-    margin-top: 14px;
-    a {
-      text-decoration: underline;
+  &__item{
+    width: 263px;
+    margin-bottom: 62px;
+    text-decoration: none;
+    transition: $anim;
+    &:hover{
+      .products__image {
+        border-left: 1px solid $gold;
+        border-bottom: 1px solid $gold;
+        &:after{
+          opacity: 1;
+        }
+      }
+      .products__name{
+        color: $gold;
+        &:before{
+          background-image: url('../img/line-gold.png');
+        }
+      }
     }
   }
-  &__social {
-    text-align: center;
-    a {
-      border: 1px solid $footer-color;
-      border-radius: 50%;
-      display: inline-block;
-      height: 28px;
-      line-height: 27px;
-      margin: 0 8px;
-      width: 28px;
+  &__image{
+    height: 200px;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: $anim;
+    position: relative;
+    &:after{
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+      opacity: 0;
       transition: $anim;
-      &:hover {
-        background: #707070;
-        color: #1f1f1f;
-        transition: $anim;
-      }
     }
   }
-  &__phones {
-    list-style-type: none;
-    margin: 0;
-    padding-top: 8px;
-    padding-left: 10px;
-    letter-spacing: 0.5px;
-    line-height: 12px;
-    li {
-      display: inline-block;
-      &+ li {
-        margin-left: 18px;
-        padding-left: 18px;
-        border-left: 1px solid $footer-color;
-      }
+  &__name{
+    padding-top: 12px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1.2px;
+    position: relative;
+    &:before{
+      width: 10px;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 12px;
+      background: transparent url('../img/line-gold-dark.png') left 2px repeat-y;
     }
-  }
-  &__mail {
-    padding-top: 6px;
-  }
-  &__copyright {
-    margin-top: 6px;
-    margin-bottom: 14px;
   }
 }
