@@ -1,6 +1,6 @@
 @import 'modules/variables';
 @import '../fonts/Lato/lato.css';
-@import '../fonts/font-awesome.css';
+@import '../fonts/FontAwesome/font-awesome.min.css';
 @import 'skeleton/skeleton';
 /*@import 'sprites/sprite';*/
 @import 'sprites/sprite';
@@ -519,7 +519,7 @@ body{
 
 
 .m-reviews {
-  padding: 40px 0;
+  padding: 40px 0 140px;
   &__header {
     text-transform: uppercase;
     text-align: center;
@@ -629,13 +629,14 @@ body{
 
 
 .b-questions {
-  padding: 40px 0;
+  padding: 100px 0 40px;
+  overflow-x: hidden;
+  //background: transparent url('/assets/template/img/b-forma__images.png') 50% top no-repeat;
   &__header {
     text-transform: uppercase;
     text-align: left;
     font-size: 42px;
     color: #fff;
-    margin-bottom: 10px;
     letter-spacing: 3px;
     position: relative;
     z-index: 2;
@@ -647,14 +648,16 @@ body{
     margin-bottom: 62px;
   }
   .f-row{
-    display: inline-flex;
+    display: flex;
   }
   &__inputs{
     width: 360px;
+    position: relative;
+    z-index: 2;
   }
   input[type="text"]{
     border: 1px solid #464646;
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
     height: 50px;
     line-height: 50px;
     padding: 0 10px 0 40px;
@@ -663,28 +666,97 @@ body{
   }
   textarea{
     border: 1px solid #464646;
-    background-color: transparent;
+    background-color: rgba(0,0,0,0.6);
     height: 100px;
     line-height: 130%;
     padding: 15px 15px 15px 40px;
     width: 100%;
     color: #fff;
   }
-  .input-box + .input-box{
-    margin-top: 35px;
+  .input-box{
+    position: relative;
+    +.input-box{
+      margin-top: 35px;
+    }
+    &:before{
+      position: absolute;
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      left: 11px;
+    }
+    &--name:before{
+      @include sprite($forma-name);
+    }
+    &--email:before{
+      @include sprite($forma-email);
+    }
+    &--phone:before{
+      @include sprite($forma-phone);
+    }
+    &--message:before{
+      @include sprite($forma-message);
+      top: 24px;
+    }
+
   }
+
   &__right-box{
     display: flex;
     align-items: flex-end;
+    flex-grow: 1;
+    position: relative;
   }
+  &__images{
+    position: absolute;
+    //top: 0;
+    //left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    left: -89px;
+    top: -181px;
 
+  }
+  &__image-big-o{
+    background-size: cover;
+    position: absolute;
+    top: -182px;
+    left: 89px;
+    width: 672px;
+    height: 368px;
+    border: 1px solid $red;
+    transform: skew(-44.5deg);
+  }
+  &__image-big{
+    background-size: cover;
+    position: absolute;
+    top: -170px;
+    left: -87px;
+    width: 1036px;
+    height: 368px;
+    clip-path: polygon(35% 0%, 100% 0%, 65% 100%, 0% 100%) margin-box;
+  }
+  &__btn-box{
+    position: relative;
+    &:after{
+      content: "";
+      display: inline-block;
+      width: 156px;
+      height: 5px;
+      top: 28px;
+      margin-left: 30px;
+      position: absolute;
+      background: transparent url('../img/line-gold-vertical.png') left top repeat-x;
+    }
+  }
   &__btn{
     display: inline-block;
-    margin-left: 50px;
+    margin-left: 31px;
     width: 262px;
     font-size: 16px;
     height: 60px;
-    line-height: 60px;
+    line-height: 58px;
     border: 1px solid #fff;
     text-align: center;
     text-decoration: none;
@@ -693,6 +765,7 @@ body{
     position: relative;
     padding: 0;
     transition: $anim;
+    z-index: 2;
     &:before{
       content: "";
       display: inline-block;
@@ -755,6 +828,7 @@ body{
     position: relative;
     display: block;
     padding-left: 56px;
+    height: 60px;
     &:before{
       content: "";
       position: absolute;
@@ -780,6 +854,9 @@ body{
     }
   }
   &__angles{
+    height: 0;
+    line-height: 0;
+    font-size:0;
     &:before{
       content: "";
       display: inline-block;
@@ -808,4 +885,68 @@ body{
     }
   }
 
+}
+
+.footer{
+  font-size: 12px;
+  color: $footer-color;
+  background: transparent url('../img/b-footer__bg.jpg') center bottom no-repeat;
+  min-height: 320px;
+  padding-top: 270px;
+  margin-top: -200px;
+
+  a{
+    color: $footer-color;
+  }
+  .f-row{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__dev{
+    margin-top: 14px;
+    a {
+      text-decoration: underline;
+    }
+  }
+  &__social {
+    text-align: center;
+    a {
+      border: 1px solid $footer-color;
+      border-radius: 50%;
+      display: inline-block;
+      height: 28px;
+      line-height: 27px;
+      margin: 0 8px;
+      width: 28px;
+      transition: $anim;
+      &:hover {
+        background: #707070;
+        color: #1f1f1f;
+        transition: $anim;
+      }
+    }
+  }
+  &__phones {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 8px;
+    padding-left: 10px;
+    letter-spacing: 0.5px;
+    line-height: 12px;
+    li {
+      display: inline-block;
+      &+ li {
+        margin-left: 18px;
+        padding-left: 18px;
+        border-left: 1px solid $footer-color;
+      }
+    }
+  }
+  &__mail {
+    padding-top: 6px;
+  }
+  &__copyright {
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
 }
