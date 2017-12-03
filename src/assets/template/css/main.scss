@@ -6,6 +6,7 @@
 @import 'sprites/sprite';
 
 @import 'modules/mainpage';
+@import 'modules/contacts';
 @import 'modules/common';
 
 
@@ -162,6 +163,17 @@ body{
 
 .b-catalog{
   padding: 40px 0 100px;
+  &:after{
+    position: absolute;
+    content: "";
+    height: 1249px;
+    width: 5px;
+    background: transparent url('../img/b-catalog__vline.jpg') left top no-repeat;
+    display: inline-block;
+    left: 0;
+    top: 0;
+
+  }
   .f-row{
     display: flex;
   }
@@ -390,7 +402,7 @@ body{
     width: 263px;
     margin-bottom: 62px;
     text-decoration: none;
-    transition: $anim;
+    transition: $anim5;
     &:hover{
       .products__image {
         border-left: 1px solid $gold;
@@ -402,7 +414,10 @@ body{
       .products__name{
         color: $gold;
         &:before{
-          background-image: url('../img/line-gold.png');
+          opacity: 0;
+        }
+        &:after{
+          opacity: 1;
         }
       }
     }
@@ -411,7 +426,7 @@ body{
     height: 200px;
     border-left: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    transition: $anim;
+    transition: $anim5;
     position: relative;
     &:after{
       position: absolute;
@@ -422,7 +437,7 @@ body{
       bottom: 0;
       background-color: rgba(0,0,0,0.6);
       opacity: 0;
-      transition: $anim;
+      transition: $anim5;
     }
   }
   &__name{
@@ -443,6 +458,19 @@ body{
       bottom: 0;
       left: 12px;
       background: transparent url('../img/line-gold-dark.png') left 2px repeat-y;
+      transition: $anim5;
+    }
+    &:after{
+      width: 10px;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 12px;
+      opacity: 0;
+      background: transparent url('../img/line-gold.png') left 2px repeat-y;
+      transition: $anim5;
     }
   }
 }
