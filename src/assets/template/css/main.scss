@@ -1034,6 +1034,9 @@ div.selectric{
     li{
       border-top: 0 none;
       border-bottom: 1px solid #464646;
+      &:hover{
+        background-color: $gold;
+      }
       a{
         color: #fff;
         text-decoration: none;
@@ -1051,7 +1054,7 @@ div.selectric{
 
 
 .b-wherebuy {
-  padding: 40px 0;
+  padding: 40px 0 0;
   &__box{
     padding-bottom: 40px;
     margin-bottom: 40px;
@@ -1196,8 +1199,13 @@ div.selectric{
 
 .b-address{
   color: #fff;
+  &.f-row{
+    flex-wrap: wrap;
+  }
   &__item{
-    margin-bottom: 30px;
+    margin-bottom: 75px;
+    width: 33%;
+    margin-top: 15px;
   }
   &__name{
     text-transform: uppercase;
@@ -1231,5 +1239,83 @@ div.selectric{
       top: 3px;
       @include sprite($marker);
     }
+  }
+}
+.map{
+  margin-bottom: 50px;
+}
+
+.contacts{
+  color: #fff;
+  padding-top: 40px;
+  &__cols{
+    display: flex;
+  }
+  &__shop{
+    width: 33%;
+    padding-right: 40px;
+  }
+  &__opt{
+    width: 33%;
+    padding-right: 40px;
+  }
+  &__consult{
+    width: 33%;
+    padding-right: 40px;
+  }
+  &__title{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  &__caption{
+    color: $gold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  &__val{
+    font-size: 16px;
+    padding-left: 36px;
+    line-height: 120%;
+    position: relative;
+    &:before{
+      position: absolute;
+      left: 6px;
+      top: 0;
+      display: inline-block;
+      content: "";
+    }
+    &--place:before{
+      @include sprite($marker);
+      left: 10px;
+    }
+    &--phone:before{
+      @include sprite($phone);
+    }
+    &--email:before{
+      @include sprite($mail);
+    }
+    &--time:before{
+      @include sprite($clock);
+    }
+    p{
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    a{
+      color: #fff;
+      text-decoration: none;
+      transition: $anim;
+      &:hover{
+        color: $gold;
+      }
+    }
+    small{
+      color: #5a4f3e;
+      font-weight: 500;
+    }
+  }
+  &__block{
+    min-height:110px;
   }
 }
