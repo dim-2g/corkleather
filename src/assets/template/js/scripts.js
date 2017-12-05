@@ -31,4 +31,8 @@ $(function() {
         $(this).removeClass('selectricOpen');
     });
 
+    $('.zoom').magnificPopup({
+        type  : 'image'
+    });
+
 });

@@ -18,6 +18,7 @@ body{
   font-size: 14px;
   line-height: 120%;
   background: #090909 url('../img/header__bg.jpg') center top no-repeat;
+  color: #fff;
 }
 *{
   box-sizing: border-box;
@@ -41,7 +42,11 @@ body{
 .header{
   .f-row{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    @media($bp-larger-than-tablet){
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   &__top{
     padding-top: 27px;
@@ -53,8 +58,12 @@ body{
       display: flex;
       list-style-type: none;
       margin: 0;
-      justify-content: space-between;
       position: relative;
+      flex-direction: column;
+      @media($bp-larger-than-tablet){
+        flex-direction: row;
+        justify-content: space-between;
+      }
       &:before{
         content: "";
         display: inline-block;
@@ -83,6 +92,10 @@ body{
   }
   &__crumbs{
     flex-grow: 1;
+    display: none;
+    @media($bp-larger-than-tablet){
+      display: block;
+    }
   }
 }
 .contacts{
@@ -1317,5 +1330,177 @@ div.selectric{
   }
   &__block{
     min-height:110px;
+  }
+}
+
+.b-page{
+  padding: 40px 0;
+  .f-row{
+    display: flex;
+    flex-direction: column;
+    @media($bp-larger-than-tablet){
+      flex-direction: row;
+    }
+  }
+  .aside{
+    width: 292px;
+    padding-right: 30px;
+    flex-shrink: 0;
+    order: 2;
+    @media($bp-larger-than-tablet){
+      order: 1;
+    }
+    &__menu{
+      position: relative;
+      &:before{
+        display: inline-block;
+        content: "";
+        height: 0;
+        width: 2000px;
+        right: 6px;
+        top: 0;
+        border-bottom: 1px solid $gold-dark;
+        position: absolute;  
+      }
+      &:after{
+        display: inline-block;
+        content: "";
+        height: 0;
+        width: 2000px;
+        right: 6px;
+        bottom: 0;
+        border-bottom: 1px solid $gold-dark;
+        position: absolute;  
+      }
+    }
+  }
+  .content{
+    order: 1;
+    @media($bp-larger-than-tablet){
+      order: 2;
+    }
+  }
+  .header1{
+    margin-bottom: 80px;
+  }
+}
+.leftmenu{
+  list-style-type: none;
+  padding: 28px 14px 28px 0;
+  position: relative;
+  margin: 0;
+  &:before{
+      content: "";
+      display: inline-block;
+      width: 10px;
+      top: 6px;
+      bottom: 6px;
+      right: 0;
+      background: transparent url("../img/line-gold-dark.png") left top repeat-y;
+      position: absolute;
+  }
+  a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 24px;
+    display: inline-block;
+    transition: $anim;
+    position: relative;
+    line-height: 135%;
+    &:hover{
+      color: $gold;
+    }
+    &:before{
+      content: "";
+      display: inline-block;
+      width: 10px;
+      top: 2px;
+      height: 24px;
+      left: -1px;
+      background: transparent url("../img/line-gold-dark.png") left top repeat-y;
+      position: absolute;
+    }
+  }
+  li{
+    margin: 0;
+    min-height: 38px;
+    + li{
+      margin-top: 26px;  
+    }
+    &.active{
+      a{
+        color: $gold;
+      }
+    }
+  }
+}
+
+.sertificaty{
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item{
+    width: 100%;  
+    margin-bottom: 56px;
+    text-align: center;
+    @media($bp-larger-than-phablet){
+      width: 50%;  
+    }
+    @media($bp-larger-than-desktop){
+      width: 33.33%;  
+    }
+    img{
+      max-width: 260px;
+    }
+  }
+}
+
+.material{
+  &__item{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 85px;
+  }
+  &__image-box{
+    min-width: 250px;
+    min-height: 256px;
+    width: 42%;
+    flex-shrink: 0;
+    margin-right: 30px;
+  }
+  &__info{
+    padding-top: 42px;
+    line-height: 180%;
+    position: relative;
+    &:before{
+      content: "";
+      display: inline-block;
+      height: 10px;
+      left: 0;
+      top: 15px;
+      width: 67%;
+      background: transparent url("../img/line-gold-dark-vertical.png") left top repeat-x;
+      position: absolute;
+      z-index: 2;
+    }
+    p{
+      margin-top: 0;
+    }
+
+  }
+  &__name{
+    text-transform: uppercase;
+    font-size: 13px;
+    color: $gold;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    line-height: 135%;
+    margin-bottom: 8px;
+  }
+  &__btn{
+    margin-top: auto;
   }
 }
