@@ -12,6 +12,10 @@
 
 a{
   color: $gold;
+  outline: none;
+  &:focus{
+    outline: none;
+  }
 }
 body{
   font-family: 'Lato', sans-serif;
@@ -1376,6 +1380,7 @@ div.selectric{
   }
   .content{
     order: 1;
+
     @media($bp-larger-than-tablet){
       order: 2;
     }
@@ -1470,11 +1475,16 @@ div.selectric{
     width: 42%;
     flex-shrink: 0;
     margin-right: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   &__info{
     padding-top: 42px;
+    padding-bottom: 8px;
     line-height: 180%;
     position: relative;
+    display: flex;
+    flex-direction: column;
     &:before{
       content: "";
       display: inline-block;
@@ -1502,5 +1512,67 @@ div.selectric{
   }
   &__btn{
     margin-top: auto;
+  }
+}
+.faq{
+  &__list{
+    margin-left: 98px;
+    margin-top: 18px;
+  }
+  &__item{
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+    position: relative;
+    &:after{
+      content: "";
+      display: inline-block;
+      height: 10px;
+      left: 0;
+      bottom: 0px;
+      right: 0;
+      background: transparent url("../img/line-gold-dark-vertical.png") left top repeat-x;
+      position: absolute;
+    }
+    &.active{
+      &:after{
+        display: none;
+      }
+      .faq__text{
+        display: block;
+      }
+      .faq__link{
+        &:before{
+          content: "\f13a";
+        }
+      }
+    }
+  }
+  &__link{
+    font-size: 18px;
+    color: #fff;
+    padding-left: 40px;
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    &:hover{
+      color: $gold;
+    }
+    &:before{
+      content: "\f138";
+      font-family: FontAwesome;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      font-size: 17px;
+      position: absolute;
+      left: 0px;
+      color: $gold;
+    }
+  }
+  &__text{
+    display: none;
+    padding-left: 40px;
+    color: $gold;
   }
 }

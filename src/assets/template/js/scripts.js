@@ -19,6 +19,25 @@ $(function() {
         adaptiveHeight: true
     });
 
+    $('.m-reviews__list').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        focusOnSelect: true,
+        adaptiveHeight: true,
+        responsive: [
+            {
+                breakpoint: 750,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+
+
     $('select.selectric').selectric({
         maxHeight: 210
     });
@@ -33,6 +52,17 @@ $(function() {
 
     $('.zoom').magnificPopup({
         type  : 'image'
+    });
+
+    $('.faq__link').click(function(){
+       $(this).parents('.faq__item').toggleClass('active');
+       return false;
+    });
+
+    $(".fa-bars").magnificPopup({
+        type: "inline",
+        midClick: true,
+        mainClass: 'mobile_menu_bg'
     });
 
 });

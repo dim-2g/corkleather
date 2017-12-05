@@ -13,19 +13,35 @@ body.main{
   }
   .f-row{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    @media($bp-larger-than-tablet){
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   &__menu{
     width: 180px;
     padding-top: 45px;
+    display: none;
+    @media($bp-larger-than-tablet){
+      display: block;
+    }
   }
   &__center{
     padding-top: 34px;
   }
   &__contacts{
-    width: 180px;
+    width: auto;
     text-align: right;
-    padding-top: 46px;
+    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    @media($bp-larger-than-tablet){
+      width: 180px;
+      padding-top: 46px;
+      margin-left: 0;
+      margin-right: 0;
+    }
     a{
       color: #fff;
       &:hover{
@@ -74,7 +90,16 @@ body.main{
 }
 .m-contacts{
   &__row{
-    margin-bottom: 23px;
+    margin-bottom: 10px;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    @media($bp-larger-than-tablet){
+      margin-bottom: 23px;
+      margin-left: 0;
+      margin-right: 0;
+      width: auto;
+    }
   }
   &__value{
     font-size: 14px;
@@ -110,30 +135,48 @@ body.main{
 }
 .m-logo{
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
+  @media($bp-larger-than-tablet){
+    margin-bottom: 80px;
+  }
+  img{
+    width: 100%;
+    @media($bp-larger-than-phablet){
+      width: auto;
+    }
+  }
 }
 .m-slogan{
-  font-size: 42px;
+  font-size: 18px;
   text-transform: uppercase;
   text-align: center;
   color: #fff;
   line-height: 140%;
   max-width: 600px;
   letter-spacing: 3px;
+  @media($bp-larger-than-tablet){
+    font-size: 42px;
+  }
 }
 
 .m-warranty{
   width: 100%;
   height: 1px;
   position: relative;
-  margin-top: 116px;
-
+  margin-top: 50px;
+  @media($bp-larger-than-tablet){
+    margin-top: 116px;
+  }
   &__box{
-    position: absolute;
-    width: 360px;
+    position: relative;
+    width: 100%;
     top: 0;
     right: 0;
     text-align: center;
+    @media($bp-larger-than-tablet){
+      position: absolute;
+      width: 360px;
+    }
     &:before{
       content: "";
       display: inline-block;
@@ -167,6 +210,7 @@ body.main{
 }
 .b-coat-collection{
   background: #090909 url('../img/m-coat-collection.jpg') center top no-repeat;
+  min-height: 1700px;
 }
 .b-coating{
   padding: 57px 0;
@@ -174,42 +218,63 @@ body.main{
   &__header{
     text-transform: uppercase;
     text-align: center;
-    font-size: 42px;
+    font-size: 30px;
     color: #fff;
-    margin-bottom: 62px;
+    margin-bottom: 30px;
     letter-spacing: 3px;
     position: relative;
     z-index: 2;
+    @media($bp-larger-than-phablet){
+      margin-bottom: 62px;
+    }
+    @media($bp-larger-than-tablet){
+      font-size: 42px;
+    }
+
   }
   .f-row{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media($bp-larger-than-desktop){
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
   &__text{
     color: #fff;
     font-size: 16px;
     line-height: 180%;
-    padding-top: 20px;
     position: relative;
-    padding-right: 30px;
+    @media($bp-larger-than-tablet){
+      padding-right: 30px;
+      padding-top: 20px;
+    }
     &:before{
       position: absolute;
       content: "";
-      display: inline-block;
       top: 6px;
       left: -42px;
       right: 93px;
       height: 1px;
       border-top: 1px dashed $gray;
+      display: none;
+      @media($bp-larger-than-phablet){
+        display: inline-block;
+      }
     }
     &:after{
       position: absolute;
       content: "";
-      display: inline-block;
       top: 6px;
       left: -42px;
       bottom: 36px;
       width: 1px;
       border-left: 1px dashed $gray;
+      display: none;
+      @media($bp-larger-than-phablet){
+        display: inline-block;
+      }
     }
   }
   &__image{
@@ -217,6 +282,11 @@ body.main{
     margin-left: 43px;
     margin-right: 43px;
     position: relative;
+    height: 410px;
+    transform: scale(0.75);
+    @media($bp-larger-than-phablet) {
+      transform: scale(1);
+    }
     img{
       clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 70% 90%, 70% 100%, 0% 100%) margin-box;
     }
@@ -249,20 +319,30 @@ body.main{
     background: transparent url('../img/m-coating__line.png') center top no-repeat;
     height: 445px;
     left: -36px;
+    display: none;
+    @media($bp-larger-than-desktop){
+      display: block;
+    }
   }
 }
 
 .b-collection{
-  padding: 75px 0 200px;
+  padding: 30px 0 30px;
+  @media($bp-larger-than-tablet){
+    padding: 75px 0 200px;
+  }
   &__header{
     text-transform: uppercase;
     text-align: center;
-    font-size: 42px;
+    font-size: 30px;
     color: #fff;
     margin-bottom: 58px;
     letter-spacing: 3px;
     position: relative;
     z-index: 2;
+    @media($bp-larger-than-tablet){
+      font-size: 42px;
+    }
   }
   &__image{
     height: 257px;
@@ -277,12 +357,21 @@ body.main{
   &__list{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    @media($bp-larger-than-desktop){
+      flex-direction: row;
+    }
   }
   &__card{
     position: relative;
-    max-width: 475px;
+    max-width: 385px;
     z-index: 5;
-    margin-left: 97px;
+    margin-left: auto;
+    margin-right: auto;
+    @media($bp-larger-than-desktop){
+      margin-left: 97px;
+      margin-right: 0;
+    }
     &:before{
       background-color: #310000;
       width: 112px;
@@ -308,8 +397,18 @@ body.main{
       transform-origin: left bottom;
       z-index: 1;
     }
+    .triangle__btn{
+      margin-left: 50px;
+      margin-bottom: 30px;
+    }
     &:hover{
-      .styled__btn{
+      .b-collection__border {
+        border-color: #563a0d;
+        &:before{
+          background: transparent url('../img/line-gold.png') center top repeat-y;
+        }
+      }
+      .triangle__btn{
         background-color: rgba(0,0,0,0.4);
         color: $red;
         border-color: $red;
@@ -322,7 +421,7 @@ body.main{
           border-bottom-color: $red;
         }
       }
-      .styled__angles{
+      .triangle__angles{
         &:before{
           border-right-color: $red;
           border-top-color: $red;
@@ -332,7 +431,7 @@ body.main{
           border-bottom-color: $red;
         }
       }
-      .styled__btntext{
+      .triangle__text{
         &:before{
           background: $red;
         }
@@ -388,134 +487,49 @@ body.main{
       position: absolute;
     }
   }
-  &__btn{
-    display: inline-block;
-    margin-left: 50px;
-    width: 165px;
-    height: 40px;
-    line-height: 40px;
-    border: 1px solid #fff;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    margin-bottom: 30px;
-    background-color: transparent;
-    position: relative;
-    padding: 0;
-    &:before{
-      content: "";
-      display: inline-block;
-      border: 2px solid transparent;
-      border-left: 2px solid #fff;
-      border-top: 2px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: $anim;
-    }
-    &:after{
-      content: "";
-      display: inline-block;
-      border: 2px solid transparent;
-      border-left: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transition: $anim;
-    }
-  }
-  &__btntext {
-    position: relative;
-    display: block;
-    padding-left: 40px;
-    &:before{
-      content: "";
-      position: absolute;
-      width: 1px;
-      background: #fff;
-      top: 0;
-      bottom: 2px;
-      left: 39px;
-      transition: $anim;
-    }
-    &:after{
-      content: "";
-      position: absolute;
-      display: inline-block;
-      border: 5px solid transparent;
-      border-left: 5px solid #fff;
-      width: 0px;
-      height: 0px;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 18px;
-      transition: $anim;
-    }
-  }
-  &__angles{
-    &:before{
-      content: "";
-      display: inline-block;
-      border: 2px solid transparent;
-      border-right: 2px solid #fff;
-      border-top: 2px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transition: $anim;
-    }
-    &:after{
-      content: "";
-      display: inline-block;
-      border: 2px solid transparent;
-      border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      width: 0;
-      height: 0;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      transition: $anim;
-    }
-  }
 }
 
 
 .m-reviews {
-  padding: 40px 0 140px;
+  padding: 40px 0 40px;
   &__header {
     text-transform: uppercase;
     text-align: center;
-    font-size: 42px;
+    font-size: 28px;
     color: #fff;
     margin-bottom: 102px;
     letter-spacing: 3px;
     position: relative;
     z-index: 2;
+    line-height: 150%;
+    @media($bp-larger-than-tablet){
+      font-size: 42px;
+    }
   }
   &__list{
-    display: flex;
-    flex-wrap: wrap;
+    //display: flex;
+    //flex-wrap: wrap;
     margin-left: -15px;
     margin-right: -15px;
   }
   &__item{
-    width: 50%;
+    //width: 50%;
     display: flex;
     margin-bottom: 20px;
     padding-left: 15px;
     padding-right: 15px;
+    flex-direction: column;
+    @media($bp-larger-than-phablet){
+      flex-direction: row;
+    }
   }
   &__image{
     width: 50%;
     position: relative;
+    display: none;
+    @media($bp-larger-than-phablet){
+      display: block;
+    }
     &:before{
       content: "";
       display: inline-block;
@@ -545,9 +559,9 @@ body.main{
   }
   &__info{
     padding-left: 30px;
+    padding-top: 15px;
     display: flex;
     flex-direction: column;
-    padding-top: 15px;
   }
   &__name{
     font-size: 16px;
@@ -591,8 +605,50 @@ body.main{
       }
     }
   }
+  .slick-list{
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .slick-arrow{
+    border: 1px solid $gold;
+    background-color: transparent;
+    color: transparent;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    transform: rotate(45deg);
+    &:before{
+      content: "\f178";
+      display: inline-block;
+      color: $gold;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      line-height: 38px;
+      font-family: FontAwesome;
+      transform: rotate(-45deg);
+    }
+    &.slick-next{
+      right: 20px;
+      top: -30px;
+      &:before{
+        content: "\f178";
+      }
+    }
+    &.slick-prev{
+      left: 20px;
+      top: -30px;
+      &:before{
+        content: "\f177";
+      }
+    }
+  }
 }
 
 .b-coat-collection + .m-reviews{
-  margin-top: -126px;
+  @media($bp-larger-than-tablet){
+    margin-top: -426px;
+  }
 }
