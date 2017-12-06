@@ -25,10 +25,10 @@ $(function() {
         dots: false,
         arrows: true,
         focusOnSelect: true,
-        adaptiveHeight: true,
+        adaptiveHeight: false,
         responsive: [
             {
-                breakpoint: 750,
+                breakpoint: 1000,
                 settings: {
                     arrows: true,
                     slidesToShow: 1

@@ -1,7 +1,7 @@
 
 
 .b-questions {
-  padding: 40px 0;
+  padding: 0 0 40px 0;
   overflow-x: hidden;
   @media($bp-larger-than-tablet){
     padding: 100px 0 40px;
@@ -24,7 +24,10 @@
   &__lead{
     color: #fff;
     letter-spacing: -0.3px;
-    margin-bottom: 62px;
+    margin-bottom: 30px;
+    @media($bp-larger-than-tablet){
+      margin-bottom: 62px;
+    }
   }
   .f-row{
     display: flex;
@@ -313,12 +316,14 @@
   }
   &__dev{
     margin-top: 14px;
+    margin-bottom: 20px;
     a {
       text-decoration: underline;
     }
   }
   &__social {
     text-align: center;
+    margin-bottom: 20px;
     a {
       border: 1px solid $footer-color;
       border-radius: 50%;
