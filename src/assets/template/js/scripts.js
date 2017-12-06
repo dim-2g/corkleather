@@ -16,7 +16,22 @@ $(function() {
         centerPadding: '0px',
         centerMode: false,
         focusOnSelect: true,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        responsive: [
+            {
+                breakpoint: 1050,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 3
+                }
+            },{
+                breakpoint: 900,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 2
+                }
+            }
+        ]
     });
 
     $('.m-reviews__list').slick({

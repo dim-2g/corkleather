@@ -56,8 +56,39 @@ body{
     padding-top: 27px;
     margin-bottom: 25px;
   }
+  &__burger{
+    margin-left: auto;
+    @media($bp-larger-than-desktop){
+      display: none;
+    }
+    .burger{
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      padding: 8px;
+      //background-color: $gold;
+      @media($bp-larger-than-tablet){
+        position: relative;
+      }
+      &:before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "\f0c9";
+        font-size: 34px;
+        line-height: 24px;
+        font-family: FontAwesome;
+        color: #fff;
+      }
+    }
+  }
   &__nav{
     flex-grow: 1;
+    display: none;
+    @media($bp-larger-than-desktop){
+      display: block;
+    }
     ul{
       display: flex;
       list-style-type: none;
@@ -493,10 +524,17 @@ body{
 }
 
 .b-product {
-  padding: 40px 0 100px;
-  .b-product__aside{
+  padding: 40px 0 40px;
+  @media($bp-larger-than-tablet){
+    padding: 40px 0 100px;
+  }
+  &__aside{
     width: 292px;
     flex-shrink: 0;
+    display: none;
+    @media($bp-larger-than-tablet){
+      display: block;
+    }
   }
   &__columns{
     display: flex;
@@ -504,6 +542,11 @@ body{
   &__body{
     //flex-grow: 1;
     max-width: 848px;
+    position: relative;
+    width: 100%;
+    @media($bp-larger-than-tablet){
+      width: calc(100% - 292px);
+    }
   }
   &-nav{
     width: 164px;
@@ -651,9 +694,16 @@ body{
         }
       }
     }
+    img{
+      width: 100%;
+    }
   }
   &__slider-nav{
     padding-right: 70px;
+    display: none;
+    @media($bp-larger-than-phablet){
+      display: block;
+    }
     &:not(.slick-initialized){
        display: none;
     }
@@ -736,6 +786,11 @@ body{
   }
   .f-row{
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @media($bp-larger-than-desktop){
+      flex-direction: row;
+    }
   }
   &__btn{
     display: inline-block;
@@ -872,8 +927,12 @@ body{
     }
   }
   &__info{
-    margin-right: 32px;
+    margin-right: 0;
     position: relative;
+    margin-bottom: 30px;
+    @media($bp-larger-than-tablet){
+      margin-right: 32px;
+    }
     .table{
       margin-bottom: 60px;
       &:after{
@@ -941,8 +1000,11 @@ body{
     font-size: 13px;
     color: #fff;
     border-right: 1px solid #563a0d;
-    min-width: 112px;
+    min-width: 0;
     padding: 9px 16px 8px;
+    @media($bp-larger-than-mobile){
+      min-width: 112px;
+    }
     &:first-child{
       padding-left: 0;
       color: $gold;
