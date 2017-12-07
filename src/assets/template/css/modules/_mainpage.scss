@@ -141,6 +141,7 @@ body.main{
   }
   img{
     width: 100%;
+    max-width: 359px;
     @media($bp-larger-than-phablet){
       width: auto;
     }

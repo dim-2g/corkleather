@@ -54,18 +54,35 @@ body{
   }
   &__top{
     padding-top: 27px;
-    margin-bottom: 25px;
+    margin-bottom: 7px;
+    @media($bp-larger-than-tablet){
+      margin-bottom: 25px;
+    }
   }
   &__burger{
     margin-left: auto;
+    position: absolute;
+    padding: 15px 12px;
+    background-color: $gold-dark;
+    top: 150px;
+    left: 0;
+    position: fixed;
+    z-index: 100;
+    @media($bp-larger-than-tablet){
+      position: relative;
+      background-color: transparent;
+      padding: 0px;
+      top: auto;
+      left: auto;
+    }
     @media($bp-larger-than-desktop){
       display: none;
     }
     .burger{
       display: block;
       width: 30px;
-      height: 30px;
-      position: absolute;
+      height: 24px;
+      position: relative;
       padding: 8px;
       //background-color: $gold;
       @media($bp-larger-than-tablet){
@@ -119,11 +136,24 @@ body{
     }
   }
   &__logo{
-    width: 328px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    @media($bp-larger-than-tablet){
+      width: 328px;
+      text-align: left;
+      margin-bottom: 0;
+    }
   }
   &__contacts{
     width: 220px;
     text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+    @media($bp-larger-than-tablet){
+      margin-left: 0;
+      margin-right: 0; 
+    }
   }
   &__crumbs{
     flex-grow: 1;
@@ -133,9 +163,27 @@ body{
     }
   }
 }
+body.main{
+  .header__burger{
+    display: block;
+    @media($bp-larger-than-tablet){
+      display: none;
+    }
+  }
+}
 .contacts{
   &__row{
     margin-bottom: 7px;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    @media($bp-larger-than-tablet){
+      margin-bottom: 23px;
+      margin-left: 0;
+      margin-right: 0;
+      width: auto;
+    }
+  
   }
   &__value{
     font-size: 14px;
@@ -531,13 +579,18 @@ body{
   &__aside{
     width: 292px;
     flex-shrink: 0;
-    display: none;
+    order: 1;
     @media($bp-larger-than-tablet){
       display: block;
+      order: 0;
     }
   }
   &__columns{
     display: flex;
+    flex-direction: column;
+    @media($bp-larger-than-tablet){
+      flex-direction: row;
+    }
   }
   &__body{
     //flex-grow: 1;
@@ -953,11 +1006,17 @@ body{
     position: relative;
     color: #fff;
     letter-spacing: 0.2px;
+
     span{
       text-transform: uppercase;
       color: $gold;
-      width: 161px;
-      display: inline-block;
+      display: block;
+      margin-bottom: 3px;
+      @media($bp-larger-than-tablet){
+        display: inline-block;
+        width: 161px;
+        margin-bottom: 0;
+      }
     }
     &--protect:before{
       content: "";

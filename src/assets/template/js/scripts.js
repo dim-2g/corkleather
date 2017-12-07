@@ -74,7 +74,7 @@ $(function() {
        return false;
     });
 
-    $(".fa-bars").magnificPopup({
+    $(".toogle-mobile-menu").magnificPopup({
         type: "inline",
         midClick: true,
         mainClass: 'mobile_menu_bg'
